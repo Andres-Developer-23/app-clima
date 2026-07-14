@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
 <form action="." method="POST" class="buscar">
     {% csrf_token %}
     <label for="ciudad">Ciudad: </label>

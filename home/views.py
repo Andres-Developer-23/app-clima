@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 import requests
 import os
 
-# Create your views here.
 def index(request):
     return render(request, 'index.html')
 
@@ -13,7 +12,13 @@ def obtener_clima(request):
     datos = {}
 
     if request.method == 'POST':
-        nombre_ciudad = request.POST.get('ciudad')
+        nombre_ciudad = request.POST.get('ciudad', '').strip()
+
+        if not nombre_ciudad:
+            return render(request, 'index.html', {
+                'error': 'Por favor ingresá el nombre de una ciudad'
+            })
+        
         API_KEY = os.getenv('OPENWEATHER_API_KEY')
         url = "https://api.openweathermap.org/data/2.5/weather"
 
