@@ -1,0 +1,1 @@
+web: gunicorn app_clima.wsgi --bind 0.0.0.0:$PORT

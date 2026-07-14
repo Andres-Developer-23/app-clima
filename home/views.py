@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import requests
+import os
 
 # Create your views here.
 def index(request):
@@ -13,7 +14,7 @@ def obtener_clima(request):
 
     if request.method == 'POST':
         nombre_ciudad = request.POST.get('ciudad')
-        API_KEY = '8f97891dd4b3303bb98f870997f24661'
+        API_KEY = os.getenv('OPENWEATHER_API_KEY')
         url = "https://api.openweathermap.org/data/2.5/weather"
 
         parametros = {
@@ -30,7 +31,7 @@ def obtener_clima(request):
 
         except requests.exceptions.RequestException:
             # Control de errores si la ciudad no existe o falla la conexión
-            datos = {"error": f"No se encontraron resultados para '{nombre}'"}
+            datos = {"error": f"No se encontraron resultados para '{nombre_ciudad}'"}
 
         return render(request, 'ciudad.html', {
             'datos': datos
