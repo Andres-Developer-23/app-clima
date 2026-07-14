@@ -2,16 +2,13 @@
 {% block content %}
 {% block menu %}
 <nav class="menu">
-        <ul>
-            <form action="." method="POST" class="buscar">
-                {% csrf_token %}
-                <label for="ciudad">Ciudad: </label>
-                <input type="text" id="ciudad" name="ciudad">
-                <button type="submit">Buscar</button>
-            </form>
-        </ul>
-
-    </nav>
+    <form action="." method="POST" class="buscar">
+        {% csrf_token %}
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Buenos Aires, London, Tokyo">
+        <button type="submit">Buscar</button>
+    </form>
+</nav>
 {% endblock menu %}
 
 {% if datos.error %}
