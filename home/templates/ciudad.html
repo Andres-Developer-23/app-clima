@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% block menu %}
+<nav class="menu">
+        <ul>
+            <form action="." method="POST" class="buscar">
+                {% csrf_token %}
+                <label for="ciudad">Ciudad: </label>
+                <input type="text" id="ciudad" name="ciudad">
+                <button type="submit">Buscar</button>
+            </form>
+        </ul>
+
+    </nav>
+{% endblock menu %}
+
+{% if datos %}
+<main>
+    <h1>Clima en {{ datos.name }}, {{ datos.sys.country }}</h1>
+    
+    <!-- URL corregida para cargar imágenes de OpenWeather -->
+    <img src="https://openweathermap.org/img/wn/{{ datos.weather.0.icon }}@2x.png" alt="Icono del clima">
+    
+    <p><strong>Estado:</strong> {{ datos.weather.0.description|capfirst }}</p>
+    <p><strong>Temperatura:</strong> {{ datos.main.temp }} °C</p>
+    <p><strong>Sensación térmica:</strong> {{ datos.main.feels_like }} °C</p>
+    <p><strong>Humedad:</strong> {{ datos.main.humidity }}%</p>
+    <p><strong>Viento:</strong> {{ datos.wind.speed }} m/s</p>
+</main>
+{% endif %}
+{% endblock content %}

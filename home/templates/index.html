@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="." method="POST" class="buscar">
+    {% csrf_token %}
+    <label for="ciudad">Ciudad: </label>
+    <input type="text" id="ciudad" name="ciudad">
+    <button type="submit">Buscar</button>
+</form>
+{% endblock content %}
