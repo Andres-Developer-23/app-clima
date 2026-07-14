@@ -14,7 +14,11 @@
     </nav>
 {% endblock menu %}
 
-{% if datos %}
+{% if datos.error %}
+    <main>
+        <p class="error">{{ datos.error }}</p>
+    </main>
+{% elif datos %}
 <main>
     <h1>Clima en {{ datos.name }}, {{ datos.sys.country }}</h1>
     
