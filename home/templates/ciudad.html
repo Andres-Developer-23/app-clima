@@ -18,8 +18,6 @@
 {% elif datos %}
 <main>
     <h1>Clima en {{ datos.name }}, {{ datos.sys.country }}</h1>
-    
-    <!-- URL corregida para cargar imágenes de OpenWeather -->
     <img src="https://openweathermap.org/img/wn/{{ datos.weather.0.icon }}@2x.png" alt="Icono del clima">
     
     <p><strong>Estado:</strong> {{ datos.weather.0.description|capfirst }}</p>
