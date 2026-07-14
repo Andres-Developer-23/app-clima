@@ -3,15 +3,103 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    background-color: aqua;
-    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #fff;
+    padding: 20px;
 }
+
+.hero {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.descripcion {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.buscar {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.buscar label {
+    display: none;
+}
+
+.buscar input {
+    flex: 1;
+    max-width: 280px;
+    height: 42px;
+    padding: 0 14px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.buscar input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.buscar button {
+    height: 42px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff9800;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.buscar button:hover {
+    background-color: #f57c00;
+}
+
+.ejemplos {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ejemplos span {
+    color: #ffcc80;
+    cursor: pointer;
+}
+
+.ejemplos span:hover {
+    text-decoration: underline;
+}
+
 .menu {
     width: 100%;
     height: max-content;
@@ -22,33 +110,29 @@ body {
     justify-content: flex-start;
 }
 
-.buscar {
-    font-size: 1.5rem;
-    margin: 5px;
-}
-.buscar input {
-    width: 200px;
-    height: 27px;
-    padding-left: 8px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 10px;
-}
-.buscar button {
-    border: none;
-    width: 53px;
-    height: 25px;
-    background-color: blue;
-    color: antiquewhite;
-    border-radius: 9px;
-}
 main {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 500px;
-    height: 500px;
-    background-color: rgba(3, 247, 40, 0.918);
+    max-width: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
+}
+
+main h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+main p {
+    margin: 4px 0;
+    font-size: 1rem;
+}
+
+main img {
+    margin: 8px 0;
 }

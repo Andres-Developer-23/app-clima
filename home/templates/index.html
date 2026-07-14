@@ -1,13 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if error %}
-    <p>{{ error }}</p>
-{% endif %}
-<form action="." method="POST" class="buscar">
-    {% csrf_token %}
-    <label for="ciudad">Ciudad: </label>
-    <input type="text" id="ciudad" name="ciudad">
-    <button type="submit">Buscar</button>
-</form>
+<section class="hero">
+    <h1>Consultá el clima de cualquier ciudad</h1>
+    <p class="descripcion">
+        Ingresá el nombre de una ciudad y obtené al instante la temperatura,
+        humedad, velocidad del viento y más datos del clima actual.
+    </p>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="." method="POST" class="buscar">
+        {% csrf_token %}
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Buenos Aires, London, Tokyo">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <p class="ejemplos">Probá con: <span onclick="buscar('Buenos Aires')">Buenos Aires</span>, <span onclick="buscar('London')">London</span>, <span onclick="buscar('Tokyo')">Tokyo</span>, <span onclick="buscar('New York')">New York</span></p>
+</section>
+
+<script>
+function buscar(ciudad) {
+    document.getElementById('ciudad').value = ciudad;
+    document.querySelector('.buscar button').click();
+}
+</script>
 {% endblock content %}
